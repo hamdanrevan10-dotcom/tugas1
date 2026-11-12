@@ -1,0 +1,26 @@
+
+name: Build C++ tugas 1
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install GCC
+        run: sudo apt-get update && sudo apt-get install -y g++
+
+      - name: Build tugas 1.cpp
+        run: g++ "tugas 1.cpp" -o tugas1
+
+      - name: Run program
+        run: ./tugas1
